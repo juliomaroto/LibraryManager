@@ -5,6 +5,8 @@
  */
 package library;
 
+import static com.sun.javafx.PlatformUtil.isLinux;
+import static com.sun.javafx.PlatformUtil.isWindows;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,18 +17,19 @@ public class GestionDAO{
     
     public String searchQuery (GestionDTO q){
                
-    return "select * from Library where nombre like '"+q.getNombre()+"%' and '"+q.getNombre()+"' not like '' or isbn like '"+q.getIsbn()+"%' and '"+q.getIsbn()+"' not like '' or author like '"+q.getAutor()+"%' and '"+q.getAutor()+"' not like '' or genre like '"+q.getGenre()+"%' and '"+q.getGenre()+"' not like ''";
+    return "select * from Library where nombre like '"+q.getNombre()+"%' and '"+q.getNombre()+"' not like '' or isbn like '"+q.getIsbn()+"%' and '"+q.getIsbn()+"' not like '' or author like '"+q.getAutor()+"%' and '"+q.getAutor()+"' not like '' or genre like '"+q.getGenre()+"%' and '"+q.getGenre()+"' not like '';";
         
     }
     
     public String updateQuery(GestionDTO q){
       
-       return "UPDATE Library SET nombre='"+q.getNombre()+"',author='"+q.getAutor()+"', price='"+q.getPrecio()+"', genre ='"+q.getGenre()+"', publisher='"+q.getEditorial()+"', isbn='"+q.getIsbn()+"', pages='"+q.getPaginas()+"', stock='"+q.getStock()+"' where id ='"+q.getId()+"'";
+       return "UPDATE Library SET nombre='"+q.getNombre()+"',author='"+q.getAutor()+"', price='"+q.getPrecio()+"', genre ='"+q.getGenre()+"', publisher='"+q.getEditorial()+"', isbn='"+q.getIsbn()+"', pages='"+q.getPaginas()+"', stock='"+q.getStock()+"' where id ='"+q.getId()+"';";
     }
     
     public String insertQuery(GestionDTO q){
         
-        return "insert into Library VALUES(INTEGER DEFAULT 0,'"+q.getNombre()+"', '"+q.getPrecio()+"', '"+q.getAutor()+"', '"+q.getGenre()+"' , '"+q.getEditorial()+"', '"+q.getIsbn()+"', '"+q.getPaginas()+"', '"+q.getStock()+"')";      
+        return "insert into Library(nombre, price, author, genre, publisher, isbn, pages, stock)"
+                + "VALUES('"+q.getNombre()+"', '"+q.getPrecio()+"', '"+q.getAutor()+"', '"+q.getGenre()+"' , '"+q.getEditorial()+"', '"+q.getIsbn()+"', '"+q.getPaginas()+"', '"+q.getStock()+"');";      
     }
     
     public String deleteQuery(GestionDTO q){
@@ -41,15 +44,21 @@ public class GestionDAO{
         ResultSet rs = null;
         String args = null;
         
+        
         ArrayList<GestionDTO> ret = null;
         
         try {
              
             Class.forName("org.sqlite.JDBC");
             
-
-            con = DriverManager.getConnection("jdbc:sqlite:.\\src\\db\\gestion.db");
+            String OS = System.getProperty("os.name").toLowerCase();
             
+            if(isWindows()){
+               con = DriverManager.getConnection("jdbc:sqlite:.\\src\\db\\gestion.db");
+            } else if (isLinux()) {
+                con = DriverManager.getConnection("jdbc:sqlite:./src/db/gestion.db");
+            }
+ 
             Statement stmt = con.createStatement();
             
             switch (tQuery) {
