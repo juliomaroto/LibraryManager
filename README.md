@@ -1,4 +1,4 @@
-# gestionLibreria
+# Software Gestiona
 
 Software de gestión para una librería
 
