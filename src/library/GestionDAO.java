@@ -40,7 +40,7 @@ public class GestionDAO{
     public Collection<GestionDTO> obtenerDatos(String tQuery, GestionDTO q ) throws Exception{
         
         Connection con = null;
-        PreparedStatement pstm = null;
+        Statement stmt = null;
         ResultSet rs = null;
         String args = null;
         
@@ -59,7 +59,7 @@ public class GestionDAO{
                 con = DriverManager.getConnection("jdbc:sqlite:./src/db/gestion.db");
             }
  
-            Statement stmt = con.createStatement();
+            stmt = con.createStatement();
             
             switch (tQuery) {
                 case "update":
@@ -111,7 +111,7 @@ public class GestionDAO{
         } finally {
             try {
                 if (rs!=null) rs.close();
-                if (pstm != null) pstm.close();
+                if (stmt != null) stmt.close();
             } catch(Exception ex){
                 ex.printStackTrace();
                 throw new RuntimeException(ex);
