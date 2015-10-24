@@ -1,6 +1,6 @@
 # Software Gestiona
 
-Software de gestión para una librería
+Software de gestión para tiendas de libros.
 
 Copyright 2015 Julio Maroto Alfaya
 
