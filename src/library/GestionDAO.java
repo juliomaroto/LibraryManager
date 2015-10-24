@@ -17,7 +17,7 @@ public class GestionDAO{
     
     public String searchQuery (GestionDTO q){
                
-    return "select * from Library where nombre like '"+q.getNombre()+"%' and '"+q.getNombre()+"' not like '' or isbn like '"+q.getIsbn()+"%' and '"+q.getIsbn()+"' not like '' or author like '"+q.getAutor()+"%' and '"+q.getAutor()+"' not like '' or genre like '"+q.getGenre()+"%' and '"+q.getGenre()+"' not like '';";
+    return "select * from Library where nombre like '"+q.getNombre()+"%' and isbn like '"+q.getIsbn()+"%' and author like '"+q.getAutor()+"%' and genre like '"+q.getGenre()+"%';";
         
     }
     
