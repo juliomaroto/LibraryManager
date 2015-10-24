@@ -54,9 +54,9 @@ public class GestionDAO{
             String OS = System.getProperty("os.name").toLowerCase();
             
             if(isWindows()){
-               con = DriverManager.getConnection("jdbc:sqlite:.\\src\\db\\gestion.db");
+               con = DriverManager.getConnection("jdbc:sqlite:.\\src\\res\\db\\gestion.db");
             } else if (isLinux()) {
-                con = DriverManager.getConnection("jdbc:sqlite:./src/db/gestion.db");
+                con = DriverManager.getConnection("jdbc:sqlite:./src/res/db/gestion.db");
             }
  
             stmt = con.createStatement();

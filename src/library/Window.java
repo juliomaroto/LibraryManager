@@ -361,7 +361,7 @@ public class Window extends javax.swing.JFrame {
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo-hemingway-cocktail-bar-hotel-victoria-freiburg_opt.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/images/hemingway.png"))); // NOI18N
 
         jButton4.setText("Nuevo Libro");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -415,7 +415,7 @@ public class Window extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton7)
-                        .addGap(0, 723, Short.MAX_VALUE))
+                        .addGap(0, 714, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1)))
