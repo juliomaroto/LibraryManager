@@ -2,6 +2,8 @@
 
 Software de gestión para tiendas de libros.
 
+- Este proyecto utiliza SQLite para la persistencia de datos.
+
 Copyright 2015 Julio Maroto Alfaya
 
 Licensed under the Apache License, Version 2.0 (the "License");
