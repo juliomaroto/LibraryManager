@@ -22,7 +22,10 @@ public class Facade {
          try {
             coll = gDAO.obtenerDatos("search",q);
         } catch (Exception ex) {
-            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger
+            (
+                Window.class.getName()).log(Level.SEVERE, null, ex
+            );
         }
             return coll;
     }
@@ -33,7 +36,10 @@ public class Facade {
         try {
             gDAO.obtenerDatos("insert",q);
         } catch (Exception ex) {
-            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger
+            (
+                Window.class.getName()).log(Level.SEVERE, null, ex
+            );
         }
     }
     
@@ -41,23 +47,34 @@ public class Facade {
         
         GestionDAO gDAO = new GestionDAO();
         
-        try {
+        try 
+        {
            gDAO.obtenerDatos("delete",q);
-        } catch (Exception ex) {
-            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (Exception ex) 
+        {
+            Logger.getLogger
+            (
+                Window.class.getName()).log(Level.SEVERE, null, ex
+            );
         }
     }
     
-    public void actualizarLibros(GestionDTO q){
+    public void actualizarLibros(GestionDTO q)
+    {
         
         GestionDAO gDAO = new GestionDAO();
                
-        try {
+        try 
+        {
             gDAO.obtenerDatos("update", q);
-        } catch (Exception ex) {
-            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (Exception ex) 
+        {
+            Logger.getLogger
+                (
+                    Window.class.getName()).log(Level.SEVERE, null, ex
+                );
         }
-    }
-    
-   
+    }  
 }

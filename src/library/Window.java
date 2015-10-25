@@ -18,12 +18,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Julio
  */
-public class Window extends javax.swing.JFrame {
+public class Window extends javax.swing.JFrame 
+{
 
     /**
      * Creates new form window
      */
-    public Window() {
+    public Window() 
+    {
         initComponents();
     }
 
@@ -479,26 +481,32 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-       //Se limpia el contenido del JTable para cada nueva consulta
-       for(int row = 0; row<jTable1.getRowCount(); row++){
+  
+       for(int row = 0; row<jTable1.getRowCount(); row++)
+       {
                         
-           for(int col = 0; col<=8;col++){
+           for(int col = 0; col<=8;col++)
+           {
                jTable1.setValueAt("", row, col);
            }                           
-         }
+        }
 
         Facade fa = new Facade();
-        // Se obtienen los valores de los campos de búsqueda para genenerar un GestionDTO como patrón de búsqueda con los parámetros: String sBookName, String sIsbn, String sAutor, String sGenre
 
-        GestionDTO q = new GestionDTO(jTextField1.getText(),jTextField2.getText(), jTextField3.getText(), jTextField4.getText());
+        GestionDTO q = new GestionDTO
+        (
+                jTextField1.getText(),
+                jTextField2.getText(),
+                jTextField3.getText(),
+                jTextField4.getText()
+        );
 
-        //Se establecen los valores obtenidos por la consulta en las columnas del JTable
+    
         Collection<GestionDTO> coll = fa.obtenerLibros(q);
                
             int row = 0, col = 0, i = 0;
-            for(GestionDTO dto: coll){
+            for(GestionDTO dto: coll)
+            {
                         
                         jTable1.setValueAt(dto.getId(), row, col++);
                         jTable1.setValueAt(dto.getNombre(), row, col++);
@@ -511,8 +519,7 @@ public class Window extends javax.swing.JFrame {
                         jTable1.setValueAt(dto.getStock(), row, col++);
                         col= 0;
                         row++;
-            }   
-            
+            }               
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -548,9 +555,7 @@ public class Window extends javax.swing.JFrame {
         long id = 0, stock = 0;
         
         String nombre = "", autor = "", genero ="", editorial = "", isbn = "";
-        
-        //Se almacena como i el registro seleccionado por el usuerio para ser borrado
-        
+                
         int i = jTable1.getSelectedRow();
             
                 id = Long.parseLong(jTable1.getValueAt(i, 0).toString());
@@ -562,16 +567,31 @@ public class Window extends javax.swing.JFrame {
                 genero = (String) jTable1.getValueAt(i, 4);
                 editorial = (String) jTable1.getValueAt(i, 5);
                 isbn = (String) jTable1.getValueAt(i, 6);
-                paginas = Integer.parseInt((jTable1.getValueAt(i, 7).toString()));
+                paginas = Integer.parseInt
+                    (
+                        (jTable1.getValueAt(i, 7).toString())
+                    );
                 stock = Long.parseLong(jTable1.getValueAt(i, 8).toString());    
         
-        GestionDTO q = new GestionDTO(id, nombre, precio, autor, genero, editorial, isbn, paginas, stock);
+        GestionDTO q = new GestionDTO
+            (
+                id,
+                nombre,
+                precio,
+                autor,
+                genero,
+                editorial,
+                isbn,
+                paginas,
+                stock
+            );
         
         //Limpiando campos de registro eliminado
         Facade fa = new Facade();
         fa.eliminarLibro(q);
                 
-                for(int col = 0; col<=8;col++){
+                for(int col = 0; col<=8;col++)
+                {
                     jTable1.setValueAt("", i, col);
                 }                           
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -591,7 +611,8 @@ public class Window extends javax.swing.JFrame {
         String sRows = Arrays.toString(jTable1.getSelectedRows());
         int lengthRows = Integer.parseInt(sRows.substring(1,2));
         
-        for (int i = 0; i<=lengthRows; i++){
+        for (int i = 0; i<=lengthRows; i++)
+        {
             
                 id = Long.parseLong(jTable1.getValueAt(i, 0).toString());
                 nombre = (String) jTable1.getValueAt(i, 1);
@@ -606,7 +627,18 @@ public class Window extends javax.swing.JFrame {
                 stock = Long.parseLong(jTable1.getValueAt(i, 8).toString());    
         }
         
-        GestionDTO q = new GestionDTO(id, nombre, precio, autor, genero, editorial, isbn, paginas, stock);
+        GestionDTO q = new GestionDTO
+            (
+                id,
+                nombre,
+                precio,
+                autor,
+                genero,
+                editorial,
+                isbn,
+                paginas,
+                stock
+            );
         
         Facade fa = new Facade();
         fa.actualizarLibros(q);
@@ -615,9 +647,11 @@ public class Window extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-             for(int row = 0; row<jTable1.getRowCount(); row++){
+             for(int row = 0; row<jTable1.getRowCount(); row++)
+            {
                         
-                for(int col = 0; col<=8;col++){
+                for(int col = 0; col<=8;col++)
+                {
                     jTable1.setValueAt("", row, col);
                 }                           
             }  
@@ -629,7 +663,17 @@ public class Window extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
      // TODO add your handling code here:
-        GestionDTO q = new GestionDTO(jTextField5.getText(),Double.parseDouble(jTextField6.getText()), (String)jTextField7.getText(), (String) jTextField8.getText(), (String) jTextField9.getText(), (String) jTextField10.getText(), Integer.parseInt(jTextField11.getText()), Long.parseLong(jTextField12.getText()));
+        GestionDTO q = new GestionDTO
+            (
+                jTextField5.getText(),
+                Double.parseDouble(jTextField6.getText()),
+                (String)jTextField7.getText(),
+                (String) jTextField8.getText(),
+                (String) jTextField9.getText(),
+                (String) jTextField10.getText(),
+                Integer.parseInt(jTextField11.getText()),
+                Long.parseLong(jTextField12.getText())
+            );
         
         //Se da de alta un nuevo libro en la base de datos
         Facade fa = new Facade();
@@ -681,11 +725,15 @@ public class Window extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+                
+        {
             public void run() {
                 new Window().setVisible(true);
             }
-        });
+        }
+                
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
