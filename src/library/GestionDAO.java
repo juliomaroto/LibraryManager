@@ -15,7 +15,8 @@ import java.util.logging.Logger;
 
 public class GestionDAO{
     
-    public String searchQuery (GestionDTO q){          
+    public String searchQuery (GestionDTO q)
+    {          
     return "SELECT * FROM Library"
         + "WHERE "
         + "nombre like '"+q.getNombre()+"%'"
@@ -25,7 +26,8 @@ public class GestionDAO{
         
     }
     
-    public String updateQuery(GestionDTO q){
+    public String updateQuery(GestionDTO q)
+    {
        return "UPDATE Library "
             + "SET "
             + "nombre='"+q.getNombre()+"',"
@@ -40,7 +42,8 @@ public class GestionDAO{
             + "id ='"+q.getId()+"';";
     }
     
-    public String insertQuery(GestionDTO q){
+    public String insertQuery(GestionDTO q)
+    {
         return "INSERT "
             + "INTO Library"
             + "("
@@ -66,7 +69,8 @@ public class GestionDAO{
             + ");";      
     }
     
-    public String deleteQuery(GestionDTO q){ 
+    public String deleteQuery(GestionDTO q)
+    { 
         return "DELETE "
             + "FROM Library"
             + "WHERE"

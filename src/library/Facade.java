@@ -14,7 +14,8 @@ import java.util.logging.Logger;
  */
 public class Facade {
      
-    public Collection<GestionDTO> obtenerLibros(GestionDTO q){
+    public Collection<GestionDTO> obtenerLibros(GestionDTO q)
+    {
         
         GestionDAO gDAO = new GestionDAO();
         Collection<GestionDTO> coll = null;
@@ -30,7 +31,8 @@ public class Facade {
             return coll;
     }
     
-    public void altaLibro(GestionDTO q){
+    public void altaLibro(GestionDTO q)
+    {
         GestionDAO gDAO = new GestionDAO();
                
         try {
@@ -43,7 +45,8 @@ public class Facade {
         }
     }
     
-    public void eliminarLibro(GestionDTO q){
+    public void eliminarLibro(GestionDTO q)
+    {
         
         GestionDAO gDAO = new GestionDAO();
         
